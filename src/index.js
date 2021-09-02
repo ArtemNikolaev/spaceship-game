@@ -34,7 +34,7 @@ function paintSpaceShip(x, y) {
 
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
-}d
+}
 
 function paintEnemies(enemies) {
   enemies.forEach(enemy => {

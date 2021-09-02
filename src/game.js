@@ -4,6 +4,7 @@ function renderScene({ stars, spaceship, enemies }) {
   paintEnemies(enemies);
 }
 
-const { combineLatest } = rxjs;
-const Game = combineLatest(StarStream$, SpaceShip, Enemies, (stars, spaceship, enemies) => ({stars, spaceship, enemies}));
+const { combineLatest, sampleTime } = rxjs;
+const Game = combineLatest(StarStream$, SpaceShip, Enemies, (stars, spaceship, enemies) => ({stars, spaceship, enemies}))
+  .pipe(sampleTime(SPEED));
 Game.subscribe(renderScene);
