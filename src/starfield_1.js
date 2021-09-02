@@ -2,15 +2,6 @@ const SPEED = 40;
 const STAR_NUMBER = window.innerHeight * window.innerWidth / 4000;
 const { range, map, toArray, mergeMap, interval} = rxjs;
 
-function paintStars(stars) {
-  ctx.fillStyle = '#000000';
-  ctx.fillRect(0,0, canvas.width, canvas.height);
-  ctx.fillStyle = '#ffffff';
-  stars.forEach(star => {
-    ctx.fillRect(star.x, star.y, star.size, star.size);
-  });
-}
-
 const StarStream$ = range(1, STAR_NUMBER)
   .pipe(map(()=> ({
     x: parseInt(Math.random() * canvas.width, 10),
@@ -28,5 +19,4 @@ const StarStream$ = range(1, STAR_NUMBER)
     });
 
     return starArray;
-  }))))
-  .subscribe(paintStars);
+  }))));
