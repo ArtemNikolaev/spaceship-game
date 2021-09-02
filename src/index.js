@@ -31,3 +31,15 @@ function drawTriangle(x, y, width, color, direction) {
 function paintSpaceShip(x, y) {
   drawTriangle(x, y, 20, '#ff0000', 'up');
 }
+
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}d
+
+function paintEnemies(enemies) {
+  enemies.forEach(enemy => {
+    enemy.y += 5;
+    enemy.x += getRandomInt(-15, 15);
+    drawTriangle(enemy.x, enemy.y, 20, '#00ff00', "down");
+  })
+}
